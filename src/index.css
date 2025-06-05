@@ -1,11 +1,14 @@
 @import 'tailwindcss';
 
-@themes {
-
-  --color-text: oklch(93.81% 0.012 276.09);
-  --color-background: oklch(17.90% 0.019 270.11);
-  --color-primary: oklch(74.96% 0.050 274.74);
-  --color-secondary: oklch(41.57% 0.061 30.08);
-  --color-accent: oklch(72.04% 0.088 104.68);
-
+@theme {
+  --color-text: rgb(238, 232, 251);
+  /* oklch(93.81% 0.012 276.09) */
+  --color-background: rgb(16, 15, 31);
+  /* oklch(17.90% 0.019 270.11) */
+  --color-primary: rgb(181, 157, 232);
+  /* oklch(74.96% 0.050 274.74) */
+  --color-secondary: rgb(110, 76, 73);
+  /* oklch(41.57% 0.061 30.08) */
+  --color-accent: rgb(202, 218, 127);
+  /* oklch(72.04% 0.088 104.68) */
 }
