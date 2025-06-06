@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@themes {
+@theme {
 
   --color-text: oklch(93.81% 0.012 276.09);
   --color-background: oklch(17.90% 0.019 270.11);
@@ -8,4 +8,22 @@
   --color-secondary: oklch(41.57% 0.061 30.08);
   --color-accent: oklch(72.04% 0.088 104.68);
 
+}
+
+/* Define the scrolling animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
 }
