@@ -113,7 +113,7 @@ export default function Homepage() {
               key={title}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }} // Optional stagger
+              transition={{ duration: 0.5, delay: index * 0.2 }} 
               className="rounded-2xl bg-primary/10 p-6 backdrop-blur-md shadow-lg"
             >
               <Icon className="h-10 w-10 text-accent" />
