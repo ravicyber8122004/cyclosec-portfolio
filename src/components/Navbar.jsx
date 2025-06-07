@@ -116,16 +116,6 @@ const navLinks = [
   },
 ];
 
-// handles the scrolling when the menu bar of mobile is open
-
-useEffect(() => {
-  if (isOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-}, [isOpen]);
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -170,6 +160,16 @@ export default function Navbar() {
       overflow: "hidden",
     },
   };
+
+  // handles the scrolling when the menu bar of mobile is open
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isOpen]);
 
   return (
     <>
@@ -325,6 +325,10 @@ export default function Navbar() {
                   animate={{ height: "auto" }}
                   exit={{ height: 0 }}
                   className="max-h-[80vh] overflow-y-auto"
+                  style={{
+                    scrollbarWidth: "thin", // Firefox
+                    scrollbarColor: "#4a4a4a #1a1a1a", // Firefox thumb and track
+                  }}
                 >
                   <div className="flex flex-col md:hidden lg:hidden items-center gap-4 px-8 py-4 text-white">
                     {navLinks.map((link, i) => {
