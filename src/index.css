@@ -1,7 +1,10 @@
-@import 'tailwindcss';
-
-*{
+@import "tailwindcss";
+* {
   box-sizing: border-box;
+}
+
+body {
+  @apply bg-background;
 }
 
 @theme {
@@ -16,5 +19,19 @@
   --color-accent: rgb(202, 218, 127);
   /* oklch(72.04% 0.088 104.68) */
   --color-PrimaryButtonBackground: #44ee44;
+}
 
+@layer components {
+  .sub-menu {
+    @apply absolute top-[4.2rem] p-4 rounded-[6px] origin-[50%_-170px] backdrop-blur bg-white/[0.04];
+  }
+}
+
+/* make default css classes here for tailwind css using tailwind css*/
+
+@layer utilities {
+  /* 
+  .flex-center{
+    @apply flex items-center justify-center;
+  } */
 }
