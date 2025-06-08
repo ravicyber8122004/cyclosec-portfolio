@@ -3,133 +3,24 @@ import { CompanyLogo } from "../pages";
 import { PrimaryButton, SecondaryButton } from "./Buttons";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import {
-  FaShieldAlt,
-  FaNetworkWired,
-  FaLock,
-  FaEye,
-  FaServer,
-  FaUserShield,
-  FaTags,
-  FaAngleDown,
-} from "react-icons/fa";
-
-const navLinks = [
-  {
-    label: "Home",
-    href: "/",
-    hasSubmenu: false,
-  },
-  {
-    label: "About",
-    href: "/about",
-    hasSubmenu: false,
-  },
-  {
-    label: "Contact",
-    href: "/contact",
-    hasSubmenu: false,
-  },
-  {
-    label: "Pricing",
-    href: "/pricing",
-    hasSubmenu: false,
-  },
-  {
-    label: "Platforms",
-    href: "/platforms",
-    hasSubmenu: true,
-    subMenuHeading: ["Detection & Monitoring", "Cloud & Endpoint Security"],
-    subMenu: [
-      {
-        name: "Threat Detection Platform",
-        description: "Real-time AI-driven threat detection across networks.",
-        icon: FaShieldAlt,
-      },
-      {
-        name: "Security Information & Event Management (SIEM)",
-        description:
-          "Centralized log collection and analysis for rapid threat response.",
-        icon: FaNetworkWired,
-      },
-      {
-        name: "Security Operations Center (SOC)",
-        description: "Fully managed SOC services for 24/7 security monitoring.",
-        icon: FaUserShield,
-      },
-      {
-        name: "Cloud Security",
-        description: "Comprehensive protection for multi-cloud environments.",
-        icon: FaServer,
-      },
-      {
-        name: "Endpoint Detection & Response (EDR)",
-        description: "Detect and respond to endpoint threats instantly.",
-        icon: FaLock,
-      },
-      {
-        name: "Network Detection & Response (NDR)",
-        description: "Behavioral analytics for network threat hunting.",
-        icon: FaEye,
-      },
-    ],
-    gridCols: 2, // 6 items, so 2 columns
-  },
-  {
-    label: "Solutions",
-    href: "/solutions",
-    hasSubmenu: true,
-    subMenuHeading: ["Advanced Threat Protection", "Compliance & Intelligence"],
-    subMenu: [
-      {
-        name: "Ransomware Protection",
-        description: "Prevent and mitigate ransomware attacks effectively.",
-        icon: FaLock,
-      },
-      {
-        name: "Insider Threat Detection",
-        description: "Identify and stop threats from within your organization.",
-        icon: FaUserShield,
-      },
-      {
-        name: "Cloud Workload Protection",
-        description: "Safeguard workloads in AWS, Azure, and GCP.",
-        icon: FaServer,
-      },
-      {
-        name: "Regulatory Compliance",
-        description: "Ensure compliance with GDPR, HIPAA, PCI-DSS.",
-        icon: FaTags,
-      },
-      {
-        name: "Zero Trust Architecture",
-        description: "Enforce strict access controls with a zero-trust model.",
-        icon: FaShieldAlt,
-      },
-      {
-        name: "Threat Intelligence Integration",
-        description: "Leverage global intelligence for proactive defense.",
-        icon: FaEye,
-      },
-    ],
-    gridCols: 2, // 6 items → 2 columns
-  },
-];
+import { Link, NavLink } from "react-router-dom";
+import { navLinks } from "./index";
+import { FaAngleDown } from "react-icons/fa";
 
 export default function Navbar() {
+  // handles the toggle function of the menu bar in mobile
+
   const [isOpen, setIsOpen] = useState(false);
 
-  {
-    /* handling hover function for desktop */
-  }
+  /* handling hover function for desktop */
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  {
-    /* hadnling click function for mobile */
-  }
+  /* hadnling click function for mobile */
 
   const [Clicked, setClicked] = useState(null);
+
+  // hover effect animation for the submenus in desktop view
 
   const subMenuAnimate = {
     enter: {
@@ -149,6 +40,8 @@ export default function Navbar() {
       display: "none",
     },
   };
+
+  // drawer animation for the submenus in mobile view
 
   const subMenuDrawer = {
     enter: {
@@ -207,15 +100,23 @@ export default function Navbar() {
                       }
                       onMouseLeave={() => setHoveredIndex(null)}
                     >
-                      {/* change with the react router links */}
-                      <span
-                        className="flex justify-center items-center gap-1 hover:text-PrimaryButtonBackground hover:cursor-pointer transition-all duration-150"
-                        href={link.href}
-                      >
-                        {link.label}
-                        {link.hasSubmenu && <FaAngleDown />}{" "}
-                        {/* icons for menus having submenus  */}
-                      </span>
+                      {/* react router links if hassubmenu so not route if not so route*/}
+                      {link.hasSubmenu ? (
+                        <span className="flex justify-center items-center gap-1 hover:text-PrimaryButtonBackground hover:cursor-pointer transition-all duration-150">
+                          {link.label}
+                          {link.hasSubmenu && <FaAngleDown />}{" "}
+                          {/* icons for menus having submenus  */}
+                        </span>
+                      ) : (
+                        <NavLink
+                          className={`flex justify-center items-center gap-1 hover:text-PrimaryButtonBackground hover:cursor-pointer transition-all duration-150}`}
+                          to={link.path}
+                        >
+                          {link.label}
+                          {link.hasSubmenu && <FaAngleDown />}{" "}
+                          {/* icons for menus having submenus  */}
+                        </NavLink>
+                      )}
 
                       {/* checks wheather the navlinks have the submenu or not */}
                       {/* Hovering animation of the submenus for Desktop */}
@@ -240,7 +141,10 @@ export default function Navbar() {
                                     key={i}
                                     className="relative cursor-pointer"
                                   >
-                                    <div className="flex items-center justify-start gap-x-4 group/menubox">
+                                    <NavLink
+                                      to={item.path}
+                                      className="flex items-center justify-start gap-x-4 group/menubox"
+                                    >
                                       <div className="bg-white/5 w-fit p-2 rounded-md group-hover/menubox:bg-white group-hover/menubox:text-PrimaryButtonBackground duration-300">
                                         {item.icon && <item.icon size={20} />}
                                       </div>
@@ -252,7 +156,7 @@ export default function Navbar() {
                                           {item.description}
                                         </p>
                                       </div>
-                                    </div>
+                                    </NavLink>
                                   </div>
                                 ))}
                               </div>
@@ -308,10 +212,12 @@ export default function Navbar() {
                 <SecondaryButton
                   className="hover:bg-PrimaryButtonBackground hover:border-none hover:text-neutral-950 transition-all duration-200 hidden md:inline-flex"
                   name="Sign Up"
+                  Route="/home"
                 />
                 <PrimaryButton
                   className="hover:cursor-pointer hover:bg-green-400 transition-all duration-200 hidden md:inline-flex"
                   name="Log In"
+                  Route="/home"
                 />
               </div>
             </div>
@@ -331,23 +237,34 @@ export default function Navbar() {
                   }}
                 >
                   <div className="flex flex-col md:hidden lg:hidden items-center gap-4 px-8 py-4 text-white">
+                    {/* Menu Links for the mobile view */}
                     {navLinks.map((link, i) => {
                       const isClicked = Clicked === i;
                       return (
                         <div key={link.label} className="w-full">
-                          <button
-                            onClick={() => setClicked(isClicked ? null : i)}
-                            className="flex justify-between items-center w-full text-left font-medium py-2"
-                          >
-                            <span>{link.label}</span>
-                            {link.hasSubmenu && (
-                              <FaAngleDown
-                                className={`transition-transform duration-200 ${
-                                  isClicked ? "rotate-180" : ""
-                                }`}
-                              />
-                            )}
-                          </button>
+                          {link.hasSubmenu ? (
+                            <button
+                              onClick={() => setClicked(isClicked ? null : i)}
+                              className="flex justify-between items-center w-full text-left font-medium py-2"
+                            >
+                              <span>{link.label}</span>
+                              {link.hasSubmenu && (
+                                <FaAngleDown
+                                  className={`transition-transform duration-200 ${
+                                    isClicked ? "rotate-180" : ""
+                                  }`}
+                                />
+                              )}
+                            </button>
+                          ) : (
+                            <NavLink
+                              to={link.path}
+                              onClick={() => setClicked(isClicked ? null : i)}
+                              className="flex justify-between items-center w-full text-left font-medium py-2"
+                            >
+                              <span>{link.label}</span>
+                            </NavLink>
+                          )}
 
                           {/* submenus of the mobile */}
                           {/* submenus animation of the mobile */}
@@ -360,7 +277,8 @@ export default function Navbar() {
                               className="pl-4 py-2 flex flex-col gap-2"
                             >
                               {link.subMenu.map((item) => (
-                                <li
+                                <NavLink
+                                  to={item.path}
                                   key={item.name}
                                   className="p-2 flex items-center hover:bg-white/5 rounded-md cursor-pointer gap-x-5"
                                 >
@@ -369,7 +287,7 @@ export default function Navbar() {
                                     size={20}
                                   />
                                   <span>{item.name}</span>
-                                </li>
+                                </NavLink>
                               ))}
                             </motion.ul>
                           )}
@@ -378,12 +296,17 @@ export default function Navbar() {
                     })}
                     <div className="flex items-center justify-center w-full gap-2 pt-4">
                       <span>
-                        <PrimaryButton className="inline-block" name="Log In" />
+                        <PrimaryButton
+                          className="inline-block"
+                          name="Log In"
+                          Route="/home"
+                        />
                       </span>
                       <span>
                         <SecondaryButton
                           className="inline-block"
                           name="Sign Up"
+                          Route="/home"
                         />
                       </span>
                     </div>
