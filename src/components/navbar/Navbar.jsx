@@ -33,7 +33,7 @@ export default function Navbar() {
 
   return (
     <>
-      <section className="py-2 lg:py-8 fixed w-full top-0 z-50">
+      <section className="py-2 lg:py-8 fixed w-full top-0 z-50 bg-background">
         <div className="w-full lg:max-w-[85%] lg:mx-auto">
           <div className="border border-white/15 rounded-[27px] md:rounded-full bg-neutral-950/70 backdrop-blur mx-4">
             <div className="grid grid-cols-2 lg:[grid-template-columns:1fr_3fr_1.8fr] p-2 px-4 md:px-2 items-center">
@@ -209,7 +209,6 @@ export default function Navbar() {
         </div>
       </section>
 
-      <div className="pb-[5rem] md:pb-[8rem] lg:pb-[10rem]"></div>
     </>
   );
 }

@@ -1,10 +1,7 @@
 @import "tailwindcss";
+
 * {
   box-sizing: border-box;
-}
-
-body {
-  @apply bg-background;
 }
 
 /* - Use this when all the components are ready to use */
