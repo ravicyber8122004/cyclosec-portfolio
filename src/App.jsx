@@ -8,8 +8,9 @@ export default function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="" element={<Base />}>
+          <Route path="/" element={<Base />}>
             <Route index element={<Homepage />} />
+
           </Route>
         </Routes>
       </BrowserRouter>
