@@ -3,7 +3,7 @@ import { CompanyLogo } from "../pages";
 import { PrimaryButton, SecondaryButton } from "./Buttons";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { navLinks } from "./index";
 import { FaAngleDown } from "react-icons/fa";
 
@@ -72,7 +72,7 @@ export default function Navbar() {
             {/* Desktop Menu */}
 
             {/* Logo Design of the Navbar */}
-            <div className="grid grid-cols-2 lg:grid-cols-3 p-2 px-4 md:px-2 items-center">
+            <div className="grid grid-cols-2 lg:[grid-template-columns:1fr_3fr_1.8fr] p-2 px-4 md:px-2 items-center">
               <div className="flex items-center gap-x-1">
                 <div>
                   <img
@@ -102,14 +102,16 @@ export default function Navbar() {
                     >
                       {/* react router links if hassubmenu so not route if not so route*/}
                       {link.hasSubmenu ? (
-                        <span className="flex justify-center items-center gap-1 hover:text-PrimaryButtonBackground hover:cursor-pointer transition-all duration-150">
+                        <span className="flex justify-center items-center gap-1 hover:text-PrimaryTextColour hover:cursor-pointer transition-all duration-150">
                           {link.label}
                           {link.hasSubmenu && <FaAngleDown />}{" "}
                           {/* icons for menus having submenus  */}
                         </span>
                       ) : (
                         <NavLink
-                          className={`flex justify-center items-center gap-1 hover:text-PrimaryButtonBackground hover:cursor-pointer transition-all duration-150}`}
+                          className={`flex justify-center items-center gap-1 hover:text-PrimaryTextColour hover:cursor-pointer transition-all duration-150 ${({
+                            isActive,
+                          }) => (isActive ? "isActive" : "")}`}
                           to={link.path}
                         >
                           {link.label}
@@ -143,9 +145,11 @@ export default function Navbar() {
                                   >
                                     <NavLink
                                       to={item.path}
-                                      className="flex items-center justify-start gap-x-4 group/menubox"
+                                      className={`flex items-center justify-start gap-x-4 group/menubox ${({
+                                        isActive,
+                                      }) => (isActive ? "isActive" : "")}`}
                                     >
-                                      <div className="bg-white/5 w-fit p-2 rounded-md group-hover/menubox:bg-white group-hover/menubox:text-PrimaryButtonBackground duration-300">
+                                      <div className="bg-white/5 w-fit p-2 rounded-md group-hover/menubox:bg-white group-hover/menubox:text-PrimaryTextColour duration-300">
                                         {item.icon && <item.icon size={20} />}
                                       </div>
                                       <div>
@@ -179,7 +183,7 @@ export default function Navbar() {
                       key="close"
                       initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
                       animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                      exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                      exit={{ opacity: 0, rotate: 180, scale: 0.8 }}
                       transition={{ duration: 0.3 }}
                     >
                       <IoClose
@@ -210,7 +214,7 @@ export default function Navbar() {
                 {/* Buttons for the Tablet View */}
 
                 <SecondaryButton
-                  className="hover:bg-PrimaryButtonBackground hover:border-none hover:text-neutral-950 transition-all duration-200 hidden md:inline-flex"
+                  className="hover:bg-PrimaryTextColour hover:border-none hover:text-neutral-950 transition-all duration-200 hidden md:inline-flex"
                   name="Sign Up"
                   Route="/home"
                 />
@@ -260,7 +264,9 @@ export default function Navbar() {
                             <NavLink
                               to={link.path}
                               onClick={() => setClicked(isClicked ? null : i)}
-                              className="flex justify-between items-center w-full text-left font-medium py-2"
+                              className={`flex justify-between items-center w-full text-left font-medium py-2 ${({
+                                isActive,
+                              }) => (isActive ? "isActive" : "")}`}
                             >
                               <span>{link.label}</span>
                             </NavLink>
@@ -280,10 +286,12 @@ export default function Navbar() {
                                 <NavLink
                                   to={item.path}
                                   key={item.name}
-                                  className="p-2 flex items-center hover:bg-white/5 rounded-md cursor-pointer gap-x-5"
+                                  className={`p-2 flex items-center hover:bg-white/5 rounded-md cursor-pointer gap-x-5 ${({
+                                    isActive,
+                                  }) => (isActive ? "isActive" : "")}`}
                                 >
                                   <item.icon
-                                    className="text-PrimaryButtonBackground"
+                                    className="text-PrimaryTextColour"
                                     size={20}
                                   />
                                   <span>{item.name}</span>

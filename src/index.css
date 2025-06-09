@@ -7,6 +7,13 @@ body {
   @apply bg-background;
 }
 
+/* - Use this when all the components are ready to use */
+/* This is the navlink isActive class */
+
+/* .isActive {
+  @apply text-PrimaryTextColour
+} */
+
 @theme {
   --color-text: rgb(238, 232, 251);
   /* oklch(93.81% 0.012 276.09) */
@@ -18,7 +25,7 @@ body {
   /* oklch(41.57% 0.061 30.08) */
   --color-accent: rgb(202, 218, 127);
   /* oklch(72.04% 0.088 104.68) */
-  --color-PrimaryButtonBackground: #44ee44;
+  --color-PrimaryTextColour: rgb(68, 238, 68);
 }
 
 @layer components {

@@ -4,7 +4,7 @@ export function PrimaryButton(props) {
   const navigate = useNavigate();
   return (
     <button
-      className={`border border-PrimaryButtonBackground rounded-full px-6 py-2 font-medium bg-PrimaryButtonBackground text-neutral-950 ${props.className}`}
+      className={`border border-PrimaryTextColour rounded-full px-6 py-2 font-medium bg-PrimaryTextColour text-neutral-950 ${props.className}`}
       onClick={() => navigate(props.Route || "/")}
     >
       {props.name}

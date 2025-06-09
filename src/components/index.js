@@ -6,7 +6,6 @@ import {
   FaServer,
   FaUserShield,
   FaTags,
-  FaAngleDown,
 } from "react-icons/fa";
 
 //note: import all the components of the pages in this file for routing.
