@@ -5,9 +5,9 @@ import Navbar from "./navbar/Navbar";
 export default function Base() {
     return (
         <>
-            <Navbar/>
+            <Navbar />
             <Outlet />
-            { <Footer /> }
+            <Footer />
         </>
     );
 }
