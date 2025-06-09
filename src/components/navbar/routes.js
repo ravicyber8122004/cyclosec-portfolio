@@ -17,16 +17,7 @@ export const navLinks = [
         path: "/home",
 
     },
-    {
-        label: "About",
-        hasSubmenu: false,
-        path: "/about",
-    },
-    {
-        label: "Contact",
-        hasSubmenu: false,
-        path: "/contact",
-    },
+
     {
         label: "Pricing",
         hasSubmenu: false,
@@ -124,5 +115,15 @@ export const navLinks = [
         ],
         gridCols: 2,
     },
+    {
+        label: "About",
+        hasSubmenu: false,
+        path: "/about",
+    },
+    {
+        label: "Contact",
+        hasSubmenu: false,
+        path: "/contact",
+    }
 ];
 
