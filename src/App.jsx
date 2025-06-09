@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Base, ScrollToTop } from "./components";
+import { Base, ScrollToTop} from "./components";
 import { Homepage } from "./pages";
 
 export default function App() {
