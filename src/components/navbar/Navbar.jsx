@@ -43,58 +43,59 @@ export default function Navbar() {
               </div>
 
               <nav className="lg:flex items-center justify-center hidden gap-5 font-medium text-white">
-                {navLinks.map((link, index) => (
-                  <div
-                    key={link.label}
-                    className="relative"
-                    onMouseEnter={() => link.hasSubmenu && setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                  >
-                    {link.hasSubmenu ? (
+                {navLinks.map((link, index) =>
+                  link.hasSubmenu ? (
+                    <div
+                      key={link.label}
+                      className="relative group"
+                      onMouseEnter={() => setHoveredIndex(index)}
+                      onMouseLeave={() => setHoveredIndex(null)}
+                    >
                       <span className="flex items-center gap-1 hover:text-PrimaryTextColour cursor-pointer transition-all duration-150">
                         {link.label}
                         <i className="fa fa-angle-down" />
                       </span>
-                    ) : (
-                      <NavLink
-                        to={link.path}
-                        className="flex items-center gap-1 hover:text-PrimaryTextColour cursor-pointer transition-all duration-150"
-                      >
-                        {link.label}
-                      </NavLink>
-                    )}
 
-                    {link.hasSubmenu && hoveredIndex === index && (
                       <AnimatePresence>
-                        <motion.div
-                          className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 z-50 bg-neutral-900/90 backdrop-blur-lg p-6 rounded-2xl shadow-2xl border border-white/10 w-max"
-                          initial="exit"
-                          animate="enter"
-                          exit="exit"
-                          variants={subMenuAnimate}
-                        >
-                          <div className={`grid gap-7 grid-cols-${link.gridCols}`}>
-                            {link.subMenu.map((item) => (
-                              <NavLink
-                                to={item.path}
-                                key={item.name}
-                                className="flex items-center gap-x-4 group"
-                              >
-                                <div className="bg-white/5 p-2 rounded-md group-hover:bg-white group-hover:text-PrimaryTextColour duration-300">
-                                  {item.icon && <item.icon size={20} />}
-                                </div>
-                                <div>
-                                  <h6 className="font-semibold">{item.name}</h6>
-                                  <p className="text-sm text-gray-300">{item.description}</p>
-                                </div>
-                              </NavLink>
-                            ))}
-                          </div>
-                        </motion.div>
+                        {hoveredIndex === index && (
+                          <motion.div
+                            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 z-50 bg-neutral-900/90 backdrop-blur-lg p-6 rounded-2xl shadow-2xl border border-white/10 w-max"
+                            initial="exit"
+                            animate="enter"
+                            exit="exit"
+                            variants={subMenuAnimate}
+                          >
+                            <div className={`grid gap-7 grid-cols-${link.gridCols}`}>
+                              {link.subMenu.map((item) => (
+                                <NavLink
+                                  to={item.path}
+                                  key={item.name}
+                                  className="flex items-center gap-x-4 group"
+                                >
+                                  <div className="bg-white/5 p-2 rounded-md group-hover:bg-white group-hover:text-PrimaryTextColour duration-300">
+                                    {item.icon && <item.icon size={20} />}
+                                  </div>
+                                  <div>
+                                    <h6 className="font-semibold">{item.name}</h6>
+                                    <p className="text-sm text-gray-300">{item.description}</p>
+                                  </div>
+                                </NavLink>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
                       </AnimatePresence>
-                    )}
-                  </div>
-                ))}
+                    </div>
+                  ) : (
+                    <NavLink
+                      key={link.label}
+                      to={link.path}
+                      className="flex items-center gap-1 hover:text-PrimaryTextColour cursor-pointer transition-all duration-150"
+                    >
+                      {link.label}
+                    </NavLink>
+                  )
+                )}
               </nav>
 
               <div className="flex justify-end gap-2">
@@ -207,6 +208,7 @@ export default function Navbar() {
           </div>
         </div>
       </section>
+
       <div className="pb-[5rem] md:pb-[8rem] lg:pb-[10rem]"></div>
     </>
   );
