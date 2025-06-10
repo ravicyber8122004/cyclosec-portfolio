@@ -1,7 +1,2 @@
-import Homepage from "./Homepage";
-import Aboutpage from "./Aboutpage";
-
-export {
-    Homepage,
-    Aboutpage
-}
+export { default as Homepage } from "./Homepage";
+export { default as Aboutpage } from "./Aboutpage";
