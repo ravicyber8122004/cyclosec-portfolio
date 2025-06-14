@@ -175,12 +175,7 @@ export default function Aboutpage() {
                 aliquam sapiente quis a in possimus atque expedita, cupiditate
                 necessitatibus doloremque similique sint iusto laudantium, earum
                 quaerat accusamus. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quasi corporis exercitationem impedit
-                laboriosam eum voluptatibus facere et praesentium debitis
-                dolorum? Itaque nobis, ab ratione alias esse voluptatum
-                voluptatem sit nulla.dolorum in cupiditate blanditiis commodi.
-                Esse inventore mollitia temporibus perspiciatis error, dolores,
-                maiores obcaecati numquaditate? Molestias quo ad unde tempora
+                adipisicuaditate? Molestias quo ad unde tempora
                 consequuntur sint, hic porro doloribus quisquam earum mollitia,
                 aliquid in vel ipsum! Perspiciatis, ipsum dignissimos. A,
                 repellat eveniet.
