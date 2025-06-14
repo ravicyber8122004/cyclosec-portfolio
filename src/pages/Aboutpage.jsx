@@ -162,7 +162,7 @@ export default function Aboutpage() {
             </div>
             <div className="member-details col-start-2 col-end-4">
               <div className="member-name text-lg sm:text-4xl font-bold sm:mb-2">
-                Selena Gomez
+                Selena Jones
               </div>
               <div className="member-designation text-sm sm:text-xl font-bold mb-1 sm:mb-4">
                 Lead Developer
