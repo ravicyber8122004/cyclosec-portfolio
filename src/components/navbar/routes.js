@@ -14,7 +14,7 @@ export const navLinks = [
     {
         label: "Home",
         hasSubmenu: false,
-        path: "/home",
+        path: "/",
 
     },
 
