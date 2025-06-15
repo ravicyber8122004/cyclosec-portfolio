@@ -62,7 +62,7 @@ export default function Homepage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold leading-tight md:text-6xl lg:text-7xl text-primary drop-shadow-md"
+          className="text-4xl font-extrabold leading-tight md:text-6xl lg:text-7xl text-text drop-shadow-md"
         >
           Protecting&nbsp;Digital&nbsp;Frontiers
         </motion.h1>
@@ -70,7 +70,7 @@ export default function Homepage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0, delay: 0.1 }}
           transition={{ duration: 0.6 }}
-          className="mt-6 max-w-2xl text-lg md:text-xl text-secondary"
+          className="mt-6 max-w-2xl text-lg md:text-xl text-text"
         >
           Next-generation cyber-defence platform that anticipates, detects, and
           eliminates threats – before they disrupt your business.
@@ -79,7 +79,7 @@ export default function Homepage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0, delay: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="mt-10 rounded-2xl bg-primary px-8 py-3 font-semibold text-background shadow-lg hover:shadow-primary/50 focus:outline-none focus:ring-2 focus:ring-accent/60 focus:ring-offset-2"
+          className="mt-10 rounded-2xl bg-accent px-8 py-3 font-semibold text-background shadow-lg hover:shadow-primary/50 focus:outline-none focus:ring-2 focus:ring-accent/60 focus:ring-offset-2"
         >
           Get a Demo
         </motion.button>
@@ -118,7 +118,7 @@ export default function Homepage() {
             >
               <Icon className="h-10 w-10 text-accent" />
               <h3 className="mt-4 text-xl font-bold text-primary">{title}</h3>
-              <p className="mt-2 text-sm text-secondary leading-relaxed">
+              <p className="mt-2 text-sm text-text leading-relaxed">
                 {desc}
               </p>
             </motion.div>
@@ -135,7 +135,7 @@ export default function Homepage() {
           {services.map((service, idx) => (
             <li
               key={idx}
-              className="rounded-xl bg-primary/10 px-6 py-4 text-secondary backdrop-blur-sm shadow-md hover:shadow-accent/20"
+              className="rounded-xl bg-primary/10 px-6 py-4 text-text backdrop-blur-sm shadow-md hover:shadow-accent/20"
             >
               {service}
             </li>
@@ -153,10 +153,10 @@ export default function Homepage() {
             {testimonials.map(({ name, quote }) => (
               <div
                 key={name}
-                className="rounded-xl bg-white/5 p-6 text-sm text-secondary shadow-md"
+                className="rounded-xl bg-white/5 p-6 text-sm text-text shadow-md"
               >
                 <p className="mb-4 italic">"{quote}"</p>
-                <p className="font-bold text-primary">– {name}</p>
+                <p className="font-bold text-secondary">– {name}</p>
               </div>
             ))}
           </div>
@@ -172,7 +172,7 @@ export default function Homepage() {
           <h2 className="text-3xl font-extrabold md:text-4xl text-primary">
             Ready to Secure Your Future?
           </h2>
-          <p className="mx-auto mt-4 max-w-prose text-secondary">
+          <p className="mx-auto mt-4 max-w-prose text-text">
             Discover why organisations worldwide trust our unified SOC platform
             to stay a step ahead of evolving cyber threats.
           </p>
