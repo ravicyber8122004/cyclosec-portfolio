@@ -1,7 +1,2 @@
-import Base from "./Base";
-import ScrollToTop from "./ScrollToTop";
-
-export {
-    Base,
-    ScrollToTop
-}
+export { default as Base } from "./Base";
+export { default as ScrollToTop } from "../components/ScrollToTop";
