@@ -6,7 +6,9 @@ export default function Base() {
     return (
         <>
             <Navbar />
-            <Outlet />
+            <div className="my-44">
+                <Outlet />
+            </div>
             <Footer />
         </>
     );
