@@ -132,7 +132,7 @@ export default function Homepage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold md:text-6xl lg:text-7xl text-primary relative z-10"
+          className="text-4xl font-extrabold md:text-6xl lg:text-7xl text-text relative z-10"
         >
           Your Trusted Cybersecurity Partner
         </motion.h1>
