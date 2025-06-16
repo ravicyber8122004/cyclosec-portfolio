@@ -113,21 +113,18 @@ export default function Homepage() {
   return (
     <main className="min-h-screen bg-background text-text">
       {/* Hero Section */}
-      <section
+      <motion.section
         className="relative px-4 py-24 text-center md:py-32 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroBg})` }}
+        style={{
+          backgroundImage: `url(${heroBg}), url(${circuitPattern})`,
+          backgroundSize: "cover, cover",
+          backgroundPosition: "center, center",
+          backgroundBlendMode: "normal",
+        }}
+        animate={{ backgroundImage: [`url(${heroBg}), url(${circuitPattern})`, `url(${heroBg}), url(${circuitPattern})`] }}
+        transition={{ duration: 5, repeat: Infinity, times: [0, 0.5, 1], backgroundImage: { opacity: [0.2, 0.25, 0.2] } }}
       >
         <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
-        <motion.div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url(${circuitPattern})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          animate={{ opacity: [0.2, 0.25, 0.2] }}
-          transition={{ duration: 5, repeat: Infinity }}
-        />
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -162,7 +159,7 @@ export default function Homepage() {
             Watch Demo
           </motion.button>
         </div>
-      </section>
+      </motion.section>
 
       {/* Partners Section */}
       <section className="px-4 py-16 bg-primary/5">
